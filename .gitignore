@@ -1,0 +1,22 @@
+# Build output
+**/bin/
+**/obj/
+
+# Local application data, credentials, keys, and recovery archives
+**/data/
+**/backups/
+*.db
+*.db-shm
+*.db-wal
+*.pfx
+*.pem
+*.key
+
+# IDE and operating-system files
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+Thumbs.db
+.DS_Store

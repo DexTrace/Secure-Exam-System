@@ -1,0 +1,87 @@
+<Application x:Class="SecureExam.Desktop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+  <Application.Resources>
+    <Color x:Key="Navy">#173B67</Color>
+    <Color x:Key="Ink">#172B4D</Color>
+    <Color x:Key="Muted">#68778C</Color>
+    <Color x:Key="Canvas">#F3F6FA</Color>
+    <Color x:Key="Accent">#39B89A</Color>
+    <SolidColorBrush x:Key="NavyBrush" Color="{StaticResource Navy}" />
+    <SolidColorBrush x:Key="InkBrush" Color="{StaticResource Ink}" />
+    <SolidColorBrush x:Key="MutedBrush" Color="{StaticResource Muted}" />
+    <SolidColorBrush x:Key="CanvasBrush" Color="{StaticResource Canvas}" />
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Accent}" />
+    <Style TargetType="Button">
+      <Setter Property="Cursor" Value="Hand" />
+      <Setter Property="Padding" Value="16,10" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="FontSize" Value="13" />
+      <Setter Property="FontWeight" Value="SemiBold" />
+      <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <Border x:Name="ButtonBorder"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="7">
+              <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                RecognizesAccessKey="True" />
+            </Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.88" />
+              </Trigger>
+              <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.72" />
+              </Trigger>
+              <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="ButtonBorder" Property="Opacity" Value="0.45" />
+              </Trigger>
+              <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="{StaticResource AccentBrush}" />
+              </Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    <Style TargetType="TextBox">
+      <Setter Property="Padding" Value="12,9" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="BorderBrush" Value="#D5DEE9" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Background" Value="White" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Style.Triggers>
+        <Trigger Property="IsKeyboardFocused" Value="True">
+          <Setter Property="BorderBrush" Value="#3978C6" />
+        </Trigger>
+      </Style.Triggers>
+    </Style>
+    <Style TargetType="PasswordBox">
+      <Setter Property="Padding" Value="12,9" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="BorderBrush" Value="#D5DEE9" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Background" Value="White" />
+      <Style.Triggers>
+        <Trigger Property="IsKeyboardFocused" Value="True">
+          <Setter Property="BorderBrush" Value="#3978C6" />
+        </Trigger>
+      </Style.Triggers>
+    </Style>
+    <Style TargetType="ComboBox">
+      <Setter Property="FontSize" Value="13" />
+      <Setter Property="Background" Value="White" />
+      <Setter Property="BorderBrush" Value="#D5DEE9" />
+      <Setter Property="BorderThickness" Value="1" />
+    </Style>
+  </Application.Resources>
+</Application>
